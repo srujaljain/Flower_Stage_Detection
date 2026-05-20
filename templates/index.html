@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plant Stage Detection</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="left-panel">
+
+        <h1>🌿 Plant Stage Detection</h1>
+
+        <p>
+            AI-powered flower stage analysis for efficient
+            cross-pollination.
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <label class="upload-box">
+
+                <input type="file"
+                name="image"
+                required>
+
+                📤 Upload Flower Image
+
+            </label>
+
+            <br>
+
+            <button type="submit">
+
+                Analyze Image
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right-panel">
+
+        {% if prediction %}
+
+            <img src="{{ image_path }}">
+
+            <div class="result-card">
+
+                <h2>Prediction Result</h2>
+
+                <p>
+                    <strong>Stage:</strong>
+                    {{ prediction }}
+                </p>
+
+                <p>
+                    <strong>Confidence:</strong>
+                    {{ "%.2f"|format(confidence) }}%
+                </p>
+
+            </div>
+
+        {% else %}
+
+            <div class="placeholder">
+
+                Upload an image to detect flower stage 🌸
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
