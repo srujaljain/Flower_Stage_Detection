@@ -1,6 +1,6 @@
-# Plant_Stage_Detection
+# Flower_Stage_Detection
 
-#  Plant Stage Detection for Cross Pollination
+#  Flower Stage Detection for Cross Pollination
 
 An AI-powered web application that detects flower stages using Deep Learning and Image Processing techniques. The system classifies flowers into Bud, Receptive, and Post-Receptive stages to support efficient cross-pollination.
 
