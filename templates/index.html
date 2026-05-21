@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
     <title>Plant Stage Detection</title>
 
@@ -15,22 +19,24 @@
 
 <div class="container">
 
-    <!-- LEFT SIDE -->
+    <!-- LEFT PANEL -->
 
     <div class="left-panel">
 
         <h1>🌿 Plant Stage Detection</h1>
 
         <p>
-            AI-powered flower stage analysis for efficient
-            cross-pollination.
+            AI-powered flower stage analysis
+            for efficient cross-pollination.
         </p>
 
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST"
+        enctype="multipart/form-data">
 
             <label class="upload-box">
 
-                <input type="file"
+                <input
+                type="file"
                 name="image"
                 required>
 
@@ -50,17 +56,28 @@
 
     </div>
 
-    <!-- RIGHT SIDE -->
+    <!-- RIGHT PANEL -->
 
     <div class="right-panel">
 
         {% if prediction %}
 
-            <img src="{{ image_path }}">
+            <!-- Uploaded Image -->
+
+           <img src="/static/uploads/{{ image_path }}" ...>
+
+            <p>{{ image_path }}</p>
+
+            <!-- Result Card -->
 
             <div class="result-card">
 
                 <h2>Prediction Result</h2>
+
+                <p>
+                    <strong>Plant:</strong>
+                    Papaya
+                </p>
 
                 <p>
                     <strong>Stage:</strong>
@@ -71,6 +88,12 @@
                     <strong>Confidence:</strong>
                     {{ "%.2f"|format(confidence) }}%
                 </p>
+
+                <div class="recommendation">
+
+                    {{ recommendation }}
+
+                </div>
 
             </div>
 
